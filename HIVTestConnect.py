@@ -7,7 +7,7 @@ st.set_page_config(page_title='HIVTestConnect', page_icon= '👋')
 
 hide_st_style = """
             <style>
-            #MainMenu {visibility: hidden;}
+            MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
             </style>
