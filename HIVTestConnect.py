@@ -125,7 +125,8 @@ def main():
         st.radio("What is your results?", ['Negative', 'Positive'])
 
 
-        st.button("Submit Results")
+        if st.button("Submit Results"):
+                      st.success('Your results have been submitted successfully')
 
     elif choice == "What your results mean":
         st.title("Understanding Your HIV Test Result")
@@ -201,7 +202,7 @@ Some people who are at risk of catching HIV choose to take a medication called P
         st.text_input('If yes, tell us about it')
         st.text_input('How can the HIV self-testing process be improved for users like you?')
         if st.button('Submit'):
-            st.success('Your results have been submitted successfully')
+            st.success('Thank you for your feedback')
 
 
 
