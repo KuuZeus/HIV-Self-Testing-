@@ -15,14 +15,6 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# Database setup
-
-mongo_uri = os.environ.get['MONGO_AUTH']
-client = MongoClient(mongo_uri)
-db = client('app')
-user_collection = db['users']
-
-
 
 
 def main():
