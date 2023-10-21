@@ -1,17 +1,39 @@
 import streamlit as st
 from PIL import Image
+from streamlit_option_menu import option_menu
+from pymongo import MongoClient
+import os
 
-
+## App general customization
 st.set_page_config(page_title='HIVTestConnect', page_icon= '👋')
 
-# st.header('Welcome the HIV Test Connect')
-# st.write('Your ultimate guide to HIV self-testing')
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
+# Database setup
+
+mongo_uri = os.environ.get['MONGO_AUTH']
+client = MongoClient(mongo_uri)
+db = client('app')
+user_collection = db['users']
+
+
 
 
 def main():
+    with st.sidebar:
 
-    menu = ["Home", "About", "What to Know" ,"Why Test" ,"Before you Test" ,"How to Test" ,"What your results mean" ,"After the Test", "Living with HIV" , "Resources"]
-    choice= st.sidebar.selectbox('Menu', menu)
+        choice =option_menu(menu_title =None,
+                    options =["Home", "About", "What to Know","Why Test" ,"Before you Test" ,"How to Test" ,"What your results mean" ,"After the Test", "Living with HIV" ,"Resources" ],
+                    # orientation='horizontal',
+                    default_index= 0)
+        # choice= st.sidebar.selectbox('Menu', menu)
 
     if choice == 'Home':
         st.header("Empower yourself: HIV Testing Made Easy!")
@@ -188,6 +210,9 @@ Some people who are at risk of catching HIV choose to take a medication called P
         st.radio("Did you encounter any issues with the test kit?", ['No', 'Yes'])
         st.text_input('If yes, tell us about it')
         st.text_input('How can the HIV self-testing process be improved for users like you?')
+        if st.button('Submit'):
+            st.success('Your results have been submitted successfully')
+
 
 
 if __name__ == '__main__':
