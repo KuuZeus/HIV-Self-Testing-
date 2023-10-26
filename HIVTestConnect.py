@@ -121,7 +121,7 @@ def main():
 
         #Data for the database
         st.radio('What is your sex?',['Male', 'Female'])
-        st.number_input('How old are you?', min_value=8, step=1)
+        st.number_input('How old are you?', min_value=16, step=1)
         st.radio("What is your results?", ['Negative', 'Positive'])
 
 
