@@ -28,7 +28,7 @@ def main():
     if choice == 'Home':
         st.header("Empower yourself: HIV Testing Made Easy!")
         st.write("--------------------------------")
-        st.video("https://youtu.be/oHKEE0WidMU?si=oUilzmMSrisJYLpR", format = 'video/mp4', start_time = 0)
+        st.video("https://www.youtube.com/watch?v=IHPEmcNY4Ok", format = 'video/mp4', start_time = 0)
         st.write('________________________________________________________________')
 
         # st.write("Select from the menu to learn more")
